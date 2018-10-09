@@ -4,9 +4,16 @@ const mongooes = require('mongoose');
 
 const Products = require('../models/products');
 router.get('/',(req,res,next)=>{
-    res.status(200).json({
-        message : 'HTTP get method works'
+    Products.find()
+    .exec()
+    .then(doc =>{ console.log(doc);
+        res.status(200).json(doc);
     })
+    .catch(error =>{
+        console.log(error);   
+        res.status(500).json({message:'Not Found'});
+    })
+   
 });
 router.get("/:productId",(req,res,next)=>{
     const id = req.params.productId;
