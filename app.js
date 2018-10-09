@@ -3,9 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongooes  = require('mongoose');
-mongooes.connect('mongodb://Prabodha-mano_ranga:Prabodha201@@test1-shard-00-00-',{
-    useMongoClient : true
-});
+mongooes.connect('mongodb://Prabodha-mano_ranga:Prabodha$201@test1-shard-00-00-');
 
 // create routes
 const produtsRoutes = require('./api/routes/products');
