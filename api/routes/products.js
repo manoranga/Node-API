@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongooes = require('mongoose');
+//const mongodb = require('mongodb').MongoClient
 
 const Products = require('../models/products');
 router.get('/',(req,res,next)=>{
