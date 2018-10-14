@@ -44,4 +44,17 @@ router.post('/',(req,res,next)=>{
         createdUser :product1
     })
 });
+
+router.delete("/:productId",(req,res,next)=>{
+    const id = req.params.productId;
+    Products.remove({_id : id})
+    .exec()
+    .then(doc =>{console.log(doc);
+            res.status(200).json(doc);
+    })
+    .catch(err =>{console.log(err);
+        res.status(500).json({error :err});
+    });
+});
+
  module.exports = router;
