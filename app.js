@@ -3,18 +3,17 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongodb  = require('mongodb');
-//mongooes.connect('mongodb://Prabodha-mano_ranga:Prabodha1234@test1-shard-00-00-',{useNewUrlParser: true});
-// Retrieve
-var MongoClient = require('mongodb').MongoClient;
-
-// Connect to the db
-MongoClient.connect("mongodb://localhost:27017/test",{useNewUrlParser: true}, function(err, db) {
-  if(!err) {
-    console.log("We are connected");
-  }
-});
+const mongooes = require('mongoose')
 
 // create routes
+
+var dbe = 'mongodb://localhost:27017/Test';
+mongooes.connect(dbe,{useNewUrlParser: true});
+
+
+// models
+var product = require('./api/models/products');
+
 const produtsRoutes = require('./api/routes/products');
 
 app.use(morgan('dev'));
